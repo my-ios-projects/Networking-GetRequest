@@ -38,11 +38,12 @@ class ViewController: UIViewController {
         
         // NOTE: request is called task in iOS
         let request_task = URLSession.shared.dataTask(with: imageURL!) {
-            (data, response, error) in
+            (receivedRowData, response, error) in
+            
             print("Reqeust is DONE")
             
             if error == nil{
-                let downloadedImage = UIImage(data: data!)
+                let downloadedImage = UIImage(data: receivedRowData!)
                 
                 DispatchQueue.main.async {
                     self.imageView.image = downloadedImage
@@ -52,7 +53,7 @@ class ViewController: UIViewController {
                 print("There is an error")
             }
             
-        }
+        } // end trailing closure.
         
         // NOTE: DO NOT FORGET TO START THE REQUEST
         request_task.resume()
