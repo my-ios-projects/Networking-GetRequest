@@ -10,10 +10,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var sendRequestButton: UIButton!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
 
 
     @IBAction func sendRequestAction(_ sender: Any) {
