@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     
     func getImageFromInternet() {
         
-        let urlString = "https://upload.wikimedia.org/wikipedia/commons/4/4d/Cat_November_2010-1a.jpg"
+        let urlString = "https://www.wisdomjobs.com/tutorials/binary-search-tree-data-structure.png"
         let imageURL = URL(string: urlString)
         
         // NOTE: request is called task in iOS
