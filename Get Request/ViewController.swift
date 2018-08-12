@@ -9,17 +9,65 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var sendRequestButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
 
+    @IBAction func sendRequestAction(_ sender: Any) {
+        
+        // Hide the button
+        self.sendRequestButton.isHidden = true
+        
+        // send the request
+        getImageFromInternet()
+
+    } // end sendRequestAction
+    
+    
+    func getImageFromInternet() {
+        
+        let urlString = "https://upload.wikimedia.org/wikipedia/commons/4/4d/Cat_November_2010-1a.jpg"
+        let imageURL = URL(string: urlString)
+        
+        // NOTE: request is called task in iOS
+        let request_task = URLSession.shared.dataTask(with: imageURL!) {
+            (data, response, error) in
+            print("Reqeust is DONE")
+            
+            if error == nil{
+                let downloadedImage = UIImage(data: data!)
+                
+                DispatchQueue.main.async {
+                    self.imageView.image = downloadedImage
+                }
+
+            } else {
+                print("There is an error")
+            }
+            
+        }
+        
+        // NOTE: DO NOT FORGET TO START THE REQUEST
+        request_task.resume()
+            
+
+        
+        
+    } // end getImageFromInternet
+    
 }
+
+
+
+
+
+
+
 
