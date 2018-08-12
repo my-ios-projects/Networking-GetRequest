@@ -1,11 +1,7 @@
-//
-//  ViewController.swift
-//  Get Request
-//
-//  Created by Taha Magdy on 8/12/18.
-//  Copyright © 2018 Taha Magdy. All rights reserved.
-//
-
+/*
+ # Knowing how to send a data request; that expects a row data into memeory.
+ # Knowing the trailing completion handler.
+ */
 import UIKit
 
 class ViewController: UIViewController {
